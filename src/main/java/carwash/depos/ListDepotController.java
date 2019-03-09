@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-public class ListDeposController {
+public class ListDepotController {
 
   private DepotRepository depotRepository;
 
-  public ListDeposController(DepotRepository depotRepository) {
+  public ListDepotController(DepotRepository depotRepository) {
     this.depotRepository = depotRepository;
   }
 
