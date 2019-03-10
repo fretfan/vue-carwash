@@ -19,12 +19,22 @@ public class LoadDatabase {
 
   @PostConstruct
   public void initDatabase() {
-    var depot = Depot.builder()
-      .name("Some name")
-      .address("Some address")
+    log.info("Start database inserts");
+    var depot1 = Depot.builder()
+      .name("Sam's carwash")
+      .address("Mon Str 5")
       .numberOfWorkers(5)
       .build();
-    log.info("Inserting stuff");
-    depotRepository.save(depot);
+
+    depotRepository.save(depot1);
+
+    var depot2 = Depot.builder()
+      .name("Anna's carwash")
+      .address("Tue Str 12")
+      .numberOfWorkers(2)
+      .build();
+    depotRepository.save(depot2);
+
+    log.info("Finish database inserts");
   }
 }
