@@ -35,6 +35,20 @@ public class LoadDatabase {
       .build();
     depotRepository.save(depot2);
 
+    var depot3 = Depot.builder()
+      .name("Franks's carwash")
+      .address("Middle of nowhere 321")
+      .numberOfWorkers(10)
+      .build();
+    depotRepository.save(depot3);
+
+    var depot4 = Depot.builder()
+      .name("Smith's carwash")
+      .address("Very close str 67")
+      .numberOfWorkers(8)
+      .build();
+    depotRepository.save(depot4);
+
     log.info("Finish database inserts");
   }
 }
