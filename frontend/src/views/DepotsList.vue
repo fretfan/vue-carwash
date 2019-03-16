@@ -2,16 +2,13 @@
   <div class="depotList">
     <b-table stripped bordered hover :fields="fields" :items="depots">
       <template slot="actions">
-        <b-row align-h="center">
-          <b-col>
-            <b-button block>Details</b-button>
-          </b-col>
-          <b-col>
-            <b-button block>Schedule</b-button>
-          </b-col>
-        </b-row>
+        <b-button-group>
+          <b-button>Details</b-button>
+          <b-button>Schedule</b-button>
+        </b-button-group>
       </template>
     </b-table>
+    <b-button>Add new depot</b-button>
   </div>
 </template>
 
