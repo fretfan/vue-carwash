@@ -1,5 +1,6 @@
 package carwash.depos
 
+import carwash.repositories.DepotRepository
 import org.dozer.Mapper
 import org.springframework.stereotype.Service
 import java.util.*

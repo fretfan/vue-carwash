@@ -1,6 +1,6 @@
 package carwash
 
-import carwash.depos.DepotRepository
+import carwash.repositories.DepotRepository
 import carwash.entities.Depot
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Configuration
