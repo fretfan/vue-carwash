@@ -7,6 +7,7 @@ import javax.persistence.Id
 
 @Entity
 data class Depot(
+  //todo fix equals and hashcode???
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   var id: Long? = null,

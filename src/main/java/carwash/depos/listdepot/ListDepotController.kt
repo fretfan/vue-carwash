@@ -1,5 +1,6 @@
-package carwash.depos
+package carwash.depos.listdepot
 
+import carwash.depos.DepotDto
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
