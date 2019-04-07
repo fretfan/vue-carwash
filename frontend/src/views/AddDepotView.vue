@@ -2,55 +2,34 @@
   <div class="addDepot">
     <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
       <h3>Add new depot</h3>
-      <b-form-group id="name" label="Name" label-for="name-input">
-        <b-form-input
-          id="name-input"
-          name="name"
-          v-model="form.name"
-          v-validate="'required'"
-          trim
-        ></b-form-input>
-        <b-form-invalid-feedback :state="!errors.has('name')">
-          {{ errors.first('name') }}
-        </b-form-invalid-feedback>
-      </b-form-group>
+      <CarWashInput
+        inputId="name-input"
+        v-model="form.name"
+        v-validate="'required'"
+        labelText="Name"
+        data-vv-name="name"
+        :errorMessages="this.errors.first('name')"
+      />
 
-      <b-form-group
-        id="address"
-        label="Address"
-        label-for="address-input"
-        :invalid-feedback="errors.first('address')"
-      >
-        <b-form-input
-          id="address-input"
-          name="address"
-          v-model="form.address"
-          v-validate="'required'"
-          trim
-        ></b-form-input>
-        <b-form-invalid-feedback :state="!errors.has('address')">
-          {{ errors.first('address') }}
-        </b-form-invalid-feedback>
-      </b-form-group>
+      <CarWashInput
+        inputId="address-input"
+        v-model="form.address"
+        v-validate="'required'"
+        labelText="Address"
+        data-vv-name="address"
+        :errorMessages="this.errors.first('address')"
+      />
 
-      <b-form-group
-        id="numberOfWorkers"
-        label="Number of workers"
-        label-for="numberOfWorkers-input"
-        :invalid-feedback="errors.first('numberOfWorkers')"
-      >
-        <b-form-input
-          id="numberOfWorkers-input"
-          name="numberOfWorkers"
-          type="number"
-          v-model="form.numberOfWorkers"
-          v-validate="'required|min_value:1'"
-          trim
-        ></b-form-input>
-        <b-form-invalid-feedback :state="!errors.has('numberOfWorkers')">
-          {{ errors.first('numberOfWorkers') }}
-        </b-form-invalid-feedback>
-      </b-form-group>
+      <CarWashInput
+        inputId="numberOfWorkers-input"
+        v-model="form.numberOfWorkers"
+        v-validate="'required|min_value:1'"
+        labelText="Number of workers"
+        data-vv-name="numberOfWorkers"
+        inputType="number"
+        :errorMessages="this.errors.first('numberOfWorkers')"
+      />
+
       <b-button type="submit" variant="primary" :disabled="errors.any()"
         >Add</b-button
       >
@@ -66,8 +45,10 @@
 </template>
 
 <script>
+import CarWashInput from '../components/CarWashInput';
 export default {
   name: 'AddDepotView',
+  components: { CarWashInput },
   data() {
     return {
       form: {
@@ -80,7 +61,7 @@ export default {
     };
   },
   methods: {
-    onSubmit(evt) {
+    onSubmit() {
       this.$validator.validate().then(result => {
         if (result) {
           this.addedSuccessfully = false;
@@ -98,7 +79,7 @@ export default {
         }
       });
     },
-    onReset(evt) {
+    onReset() {
       this.resetForm();
     },
     resetForm() {
